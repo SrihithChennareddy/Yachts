@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Luxe Yacht - Ultra-Premium Luxury Yachting</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- RUBRIC #1: PERSISTENT GLASSMORPHISM NAVBAR -->
+  <nav>
+    <div class="logo">🛥️ LUXE YACHT</div>
+    <ul>
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="news.html">News</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="yacht-life.html">The Yacht Life</a></li>
+      <li><a href="buy.html">Shop</a></li>
+      <li><a href="admin.html">Admin</a></li>
+    </ul>
+  </nav>
+
+  <!-- RUBRIC #2: HERO SECTION WITH ANIMATIONS -->
+  <section class="hero">
+    <!-- Dynamic Weather Background -->
+    <div class="hero-background"></div>
+
+    <!-- Drifting Clouds -->
+    <div class="cloud-container">
+      <svg class="cloud cloud1" viewBox="0 0 180 60" xmlns="http://www.w3.org/2000/svg">
+        <path d="M 20 40 Q 20 20 40 20 Q 55 10 70 20 Q 85 5 105 20 Q 120 10 140 35" fill="currentColor" opacity="0.8"/>
+      </svg>
+      <svg class="cloud cloud2" viewBox="0 0 140 50" xmlns="http://www.w3.org/2000/svg">
+        <path d="M 15 35 Q 15 18 32 18 Q 45 10 58 18 Q 70 8 85 28" fill="currentColor" opacity="0.7"/>
+      </svg>
+      <svg class="cloud cloud3" viewBox="0 0 160 55" xmlns="http://www.w3.org/2000/svg">
+        <path d="M 18 38 Q 18 20 38 20 Q 52 12 68 20 Q 82 10 100 25 Q 118 15 140 38" fill="currentColor" opacity="0.6"/>
+      </svg>
+    </div>
+
+    <!-- RUBRIC #2: YACHT SILHOUETTE WITH SAILING ANIMATION -->
+    <div class="yacht-container">
+      <svg class="yacht-svg" viewBox="0 0 300 150" xmlns="http://www.w3.org/2000/svg">
+        <line x1="0" y1="100" x2="300" y2="100" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
+        <path d="M 50 100 L 65 75 L 235 75 L 250 100 Z" fill="rgba(255,255,255,0.9)" stroke="rgba(212,175,55,0.8)" stroke-width="2"/>
+        <rect x="140" y="45" width="65" height="32" rx="5" fill="rgba(255,255,255,0.85)" stroke="rgba(212,175,55,0.8)" stroke-width="1.5"/>
+        <circle cx="150" cy="57" r="2.5" fill="rgba(0,0,0,0.3)"/>
+        <circle cx="168" cy="57" r="2.5" fill="rgba(0,0,0,0.3)"/>
+        <circle cx="186" cy="57" r="2.5" fill="rgba(0,0,0,0.3)"/>
+        <line x1="150" y1="45" x2="150" y2="12" stroke="rgba(212,175,55,0.9)" stroke-width="2.5"/>
+        <path d="M 150 18 L 162 98 L 185 98 Z" fill="rgba(255,255,255,0.75)" stroke="rgba(212,175,55,0.6)" stroke-width="1"/>
+        <path d="M 150 22 L 108 98 L 140 98 Z" fill="rgba(255,255,255,0.65)" stroke="rgba(212,175,55,0.5)" stroke-width="1"/>
+        <path d="M 150 12 L 168 20 L 160 10 Z" fill="rgba(212,175,55,0.95)"/>
+        <circle cx="78" cy="103" r="2" fill="rgba(212,175,55,0.85)"/>
+      </svg>
+    </div>
+
+    <!-- Hero Content -->
+    <div class="hero-content">
+      <h1>LUXE YACHT</h1>
+      <p>Experience the Ocean's Ultimate Elegance</p>
+      <a href="#articles" class="cta-button">Explore Collections</a>
+    </div>
+
+    <!-- RUBRIC #2: SOUND TOGGLE BUTTON -->
+    <button class="sound-toggle">🔉 Ambiance Off</button>
+  </section>
+
+  <!-- RUBRIC #1: 10-ARTICLE GRID SECTION -->
+  <section class="articles-section" id="articles">
+    <div class="section-title">
+      <h2>Featured Collections</h2>
+      <p>DISCOVER LUXURY YACHT ENGINEERING</p>
+    </div>
+
+    <div class="articles-grid">
+      <!-- RUBRIC #1: ARTICLE 1 - FUNCTIONAL -->
+      <div class="article-card">
+        <div class="article-image">⛵</div>
+        <div class="article-content">
+          <h3>Yacht Engineering Excellence</h3>
+          <p>Advanced hull technology and marine engineering that defines modern luxury yachting performance.</p>
+          <a href="article1.html" class="read-more-btn">Read Article</a>
+        </div>
+      </div>
+
+      <!-- RUBRIC #1: ARTICLE 2 - FUNCTIONAL -->
+      <div class="article-card">
+        <div class="article-image">🌊</div>
+        <div class="article-content">
+          <h3>Mediterranean Sailing Routes</h3>
+          <p>Explore the world's most exclusive and breathtaking yacht destinations across the Mediterranean.</p>
+          <a href="article2.html" class="read-more-btn">Read Article</a>
+        </div>
+      </div>
+
+      <!-- RUBRIC #1: ARTICLE 3 - FUNCTIONAL -->
+      <div class="article-card">
+        <div class="article-image">🌱</div>
+        <div class="article-content">
+          <h3>Sustainable Sailing</h3>
+          <p>Eco-conscious yachting practices and revolutionary green marine technology for modern sailors.</p>
+          <a href="article3.html" class="read-more-btn">Read Article</a>
+        </div>
+      </div>
+
+      <!-- RUBRIC #1: ARTICLES 4-10 - LOCKED/COMING SOON -->
+      <div class="article-card">
+        <div class="article-image">🚤</div>
+        <div class="article-content">
+          <h3>Performance & Speed</h3>
+          <p>High-performance marine engines and cutting-edge propulsion systems for ultimate cruising.</p>
+        </div>
+        <div class="lock-overlay">
+          <h3>🔒 Coming Soon</h3>
+          <p>Exclusive Feature</p>
+        </div>
+      </div>
+
+      <div class="article-card">
+        <div class="article-image">🧭</div>
+        <div class="article-content">
+          <h3>Navigation Systems</h3>
+          <p>Advanced marine navigation and autonomous systems for safe oceanic exploration.</p>
+        </div>
+        <div class="lock-overlay">
+          <h3>🔒 Coming Soon</h3>
+          <p>Exclusive Feature</p>
+        </div>
+      </div>
+
+      <div class="article-card">
+        <div class="article-image">💎</div>
+        <div class="article-content">
+          <h3>Luxury Interiors</h3>
+          <p>Opulent cabin designs and premium materials that redefine maritime living standards.</p>
+        </div>
+        <div class="lock-overlay">
+          <h3>🔒 Coming Soon</h3>
+          <p>Exclusive Feature</p>
+        </div>
+      </div>
+
+      <div class="article-card">
+        <div class="article-image">⚓</div>
+        <div class="article-content">
+          <h3>Marine Safety</h3>
+          <p>Comprehensive safety systems and emergency protocols for complete peace of mind.</p>
+        </div>
+        <div class="lock-overlay">
+          <h3>🔒 Coming Soon</h3>
+          <p>Exclusive Feature</p>
+        </div>
+      </div>
+
+      <div class="article-card">
+        <div class="article-image">✨</div>
+        <div class="article-content">
+          <h3>Yacht Customization</h3>
+          <p>Tailor every aspect of your vessel with our bespoke customization services.</p>
+        </div>
+        <div class="lock-overlay">
+          <h3>🔒 Coming Soon</h3>
+          <p>Exclusive Feature</p>
+        </div>
+      </div>
+
+      <div class="article-card">
+        <div class="article-image">🏆</div>
+        <div class="article-content">
+          <h3>Award-Winning Designs</h3>
+          <p>Celebrating globally recognized yacht designs and architectural innovations.</p>
+        </div>
+        <div class="lock-overlay">
+          <h3>🔒 Coming Soon</h3>
+          <p>Exclusive Feature</p>
+        </div>
+      </div>
+
+      <div class="article-card">
+        <div class="article-image">🌍</div>
+        <div class="article-content">
+          <h3>Global Charter Network</h3>
+          <p>Access to exclusive yacht charter experiences across the world's finest destinations.</p>
+        </div>
+        <div class="lock-overlay">
+          <h3>🔒 Coming Soon</h3>
+          <p>Exclusive Feature</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>

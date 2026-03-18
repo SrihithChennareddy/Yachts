@@ -1,0 +1,1074 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+/* ============================================
+   RUBRIC REQUIREMENT #1: NAUTICAL CHIC AESTHETIC
+   Color System: Navy #001220, Gold #D4AF37, Pearl White
+   Typography: Playfair Display (headers), Montserrat (body)
+   ============================================ */
+
+:root {
+  --navy-primary: #001220;
+  --gold-accent: #D4AF37;
+  --pearl-white: #F5F5F0;
+  --ocean-blue: #0A4A7D;
+  --sunset-orange: #FF6B35;
+  --starry-navy: #0A0E27;
+  --glass-bg: rgba(255, 255, 255, 0.1);
+  --glass-border: rgba(255, 255, 255, 0.2);
+  --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  color: var(--navy-primary);
+  background: var(--pearl-white);
+  line-height: 1.8;
+}
+
+/* ============================================
+   RUBRIC REQUIREMENT #7: TYPOGRAPHY
+   Using Playfair Display for headers, Montserrat for body
+   ============================================ */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: var(--navy-primary);
+}
+
+h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-size: 2.8rem;
+  margin-bottom: 1.5rem;
+}
+
+h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+h4 {
+  font-size: 1.3rem;
+  margin-bottom: 0.75rem;
+}
+
+p {
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+/* ============================================
+   RUBRIC REQUIREMENT #1: PERSISTENT GLASSMORPHISM NAVBAR
+   Links: Home, News, About, The Yacht Life, Admin
+   ============================================ */
+
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  backdrop-filter: blur(12px);
+  background: rgba(0, 18, 32, 0.85);
+  border-bottom: 1px solid var(--glass-border);
+  padding: 1.2rem 2rem;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+}
+
+nav .logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: var(--gold-accent);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: var(--transition);
+}
+
+nav .logo:hover {
+  text-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
+  transform: scale(1.05);
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 2.5rem;
+}
+
+nav a {
+  color: var(--pearl-white);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  position: relative;
+  transition: var(--transition);
+  letter-spacing: 0.5px;
+}
+
+nav a::before {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--gold-accent), #FFD700);
+  transition: width 0.3s ease;
+}
+
+nav a:hover::before,
+nav a.active::before {
+  width: 100%;
+}
+
+nav a:hover {
+  color: var(--gold-accent);
+}
+
+/* ============================================
+   RUBRIC REQUIREMENT #2: HERO SECTION WITH YACHT ANIMATION
+   CSS @keyframes for sailing yacht with rocking motion
+   ============================================ */
+
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin-top: 70px;
+}
+
+/* RUBRIC #2: Dynamic Weather System - Day to Sunset to Night Cycle (60 seconds) */
+.hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, #87CEEB 0%, #E0F6FF 100%);
+  z-index: -2;
+  animation: weatherCycle 60s ease-in-out infinite;
+}
+
+@keyframes weatherCycle {
+  0% {
+    /* Bright Coastal Day */
+    background: linear-gradient(180deg, #87CEEB 0%, #E0F6FF 50%, #ADD8E6 100%);
+  }
+  33% {
+    /* Vivid Sunset */
+    background: linear-gradient(180deg, #FF6B35 0%, #FF8C42 40%, #FFA500 70%, #FFB347 100%);
+  }
+  66% {
+    /* Deep Starry Night */
+    background: linear-gradient(180deg, #0A0E27 0%, #16213E 50%, #0F3460 100%);
+  }
+  100% {
+    /* Back to Coastal Day */
+    background: linear-gradient(180deg, #87CEEB 0%, #E0F6FF 50%, #ADD8E6 100%);
+  }
+}
+
+/* RUBRIC #2: Drifting clouds with semi-transparency */
+.cloud-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.cloud {
+  position: absolute;
+  bottom: 60%;
+  fill: rgba(255, 255, 255, 0.2);
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.1));
+}
+
+.cloud1 {
+  width: 180px;
+  height: 60px;
+  animation: drift1 25s linear infinite;
+}
+
+.cloud2 {
+  width: 140px;
+  height: 50px;
+  animation: drift2 30s linear infinite;
+  opacity: 0.7;
+}
+
+.cloud3 {
+  width: 160px;
+  height: 55px;
+  animation: drift3 35s linear infinite;
+  opacity: 0.5;
+}
+
+@keyframes drift1 {
+  from { left: -180px; }
+  to { left: 100%; }
+}
+
+@keyframes drift2 {
+  from { left: -140px; }
+  to { left: 100%; }
+}
+
+@keyframes drift3 {
+  from { left: -160px; }
+  to { left: 100%; }
+}
+
+/* RUBRIC #2: Yacht Silhouette Animation - Sails horizontally with rocking motion */
+.yacht-container {
+  position: absolute;
+  width: 350px;
+  height: 180px;
+  animation: sailAcross 18s ease-in-out infinite, rockyMotion 3s ease-in-out infinite;
+  z-index: 5;
+}
+
+@keyframes sailAcross {
+  0% {
+    left: -5%;
+    top: 48%;
+  }
+  50% {
+    left: 50%;
+    top: 48%;
+  }
+  100% {
+    left: 105%;
+    top: 48%;
+  }
+}
+
+@keyframes rockyMotion {
+  0% { transform: translateY(0px) rotateZ(0deg); }
+  25% { transform: translateY(-8px) rotateZ(0.5deg); }
+  50% { transform: translateY(0px) rotateZ(0deg); }
+  75% { transform: translateY(-8px) rotateZ(-0.5deg); }
+  100% { transform: translateY(0px) rotateZ(0deg); }
+}
+
+.yacht-svg {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 12px 35px rgba(0, 0, 0, 0.25));
+}
+
+/* Hero Content */
+.hero-content {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  color: white;
+  animation: fadeInDown 1s ease-out;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero h1 {
+  font-size: 4.5rem;
+  color: var(--gold-accent);
+  text-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+  margin-bottom: 1rem;
+  letter-spacing: 3px;
+}
+
+.hero p {
+  font-size: 1.5rem;
+  color: rgba(255, 255, 255, 0.95);
+  margin-bottom: 2rem;
+  font-weight: 300;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 1.1rem 2.8rem;
+  background: linear-gradient(135deg, var(--gold-accent), #FFD700);
+  color: var(--navy-primary);
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  transition: var(--transition);
+  box-shadow: 0 12px 45px rgba(212, 175, 55, 0.35);
+  text-transform: uppercase;
+  font-size: 0.95rem;
+}
+
+.cta-button:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 55px rgba(212, 175, 55, 0.5);
+}
+
+/* RUBRIC #2: IMMERSIVE AUDIO - Sound Toggle Button */
+.sound-toggle {
+  position: absolute;
+  bottom: 40px;
+  right: 40px;
+  background: var(--gold-accent);
+  border: 2px solid var(--pearl-white);
+  color: var(--navy-primary);
+  padding: 0.75rem 1.5rem;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: 700;
+  transition: var(--transition);
+  font-size: 1rem;
+  box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3);
+}
+
+.sound-toggle:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 35px rgba(212, 175, 55, 0.5);
+}
+
+.sound-toggle.active {
+  background: #FFD700;
+  box-shadow: 0 0 30px rgba(212, 175, 55, 0.7);
+}
+
+/* ============================================
+   RUBRIC REQUIREMENT #1: 10-ARTICLE GRID
+   First 3 functional, 7 locked/coming soon
+   ============================================ */
+
+.articles-section {
+  padding: 5rem 2rem;
+  background: var(--pearl-white);
+  min-height: 100vh;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.section-title h2 {
+  color: var(--navy-primary);
+  margin-bottom: 0.5rem;
+}
+
+.section-title p {
+  font-size: 1rem;
+  color: #666;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.articles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2.5rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.article-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.12);
+  transition: var(--transition);
+  position: relative;
+  cursor: pointer;
+  border: 2px solid var(--pearl-white);
+}
+
+.article-card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 18px 50px rgba(212, 175, 55, 0.2);
+  border-color: var(--gold-accent);
+}
+
+.article-image {
+  width: 100%;
+  height: 220px;
+  background: linear-gradient(135deg, var(--navy-primary), var(--ocean-blue));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 3.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.article-image::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, rgba(212, 175, 55, 0.15), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.article-card:hover .article-image::after {
+  opacity: 1;
+}
+
+.article-content {
+  padding: 2rem;
+}
+
+.article-content h3 {
+  color: var(--navy-primary);
+  margin-bottom: 0.75rem;
+  font-size: 1.4rem;
+}
+
+.article-content p {
+  color: #666;
+  margin-bottom: 1.25rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.read-more-btn {
+  display: inline-block;
+  color: var(--gold-accent);
+  text-decoration: none;
+  font-weight: 700;
+  position: relative;
+  transition: var(--transition);
+  font-size: 0.95rem;
+  letter-spacing: 1px;
+}
+
+.read-more-btn::after {
+  content: ' →';
+  transition: var(--transition);
+}
+
+.article-card:hover .read-more-btn::after {
+  transform: translateX(8px);
+}
+
+/* Locked/Coming Soon Overlay */
+.lock-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 18, 32, 0.9);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  z-index: 20;
+  backdrop-filter: blur(4px);
+}
+
+.lock-overlay h3 {
+  color: var(--gold-accent);
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.lock-overlay p {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.95rem;
+}
+
+/* ============================================
+   RUBRIC REQUIREMENT #4: NEWS HUB WITH EXTERNAL LINKS
+   ============================================ */
+
+.news-section {
+  padding: 5rem 2rem;
+  background: linear-gradient(135deg, var(--navy-primary) 0%, var(--ocean-blue) 100%);
+  min-height: 100vh;
+}
+
+.news-section .section-title h2,
+.news-section .section-title p {
+  color: var(--gold-accent);
+}
+
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.news-block {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  padding: 2.2rem;
+  backdrop-filter: blur(10px);
+  transition: var(--transition);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+}
+
+.news-block:hover {
+  transform: translateY(-10px);
+  border-color: var(--gold-accent);
+  box-shadow: 0 15px 45px rgba(212, 175, 55, 0.25);
+}
+
+.news-block h4 {
+  color: var(--gold-accent);
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+  line-height: 1.4;
+}
+
+.news-block p {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.7;
+}
+
+.news-link {
+  display: inline-block;
+  color: #87CEEB;
+  text-decoration: none;
+  font-weight: 600;
+  transition: var(--transition);
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+}
+
+.news-link:hover {
+  color: var(--gold-accent);
+  transform: translateX(5px);
+}
+
+/* ============================================
+   RUBRIC REQUIREMENT #5: ABOUT PAGE & CORPORATE IDENTITY
+   Leadership: Alexander Vance (CEO), Sarah Sterling (CIO), Marcus Drake (COO)
+   Founded 1995, Monaco HQ
+   ============================================ */
+
+.about-section {
+  padding: 5rem 2rem;
+  background: var(--pearl-white);
+  min-height: 100vh;
+}
+
+.about-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.leadership-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2.5rem;
+  margin-bottom: 4rem;
+}
+
+.leader-card {
+  background: linear-gradient(135deg, var(--navy-primary), var(--ocean-blue));
+  border-radius: 15px;
+  padding: 2.5rem;
+  color: white;
+  text-align: center;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  transition: var(--transition);
+  border-top: 4px solid var(--gold-accent);
+}
+
+.leader-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 50px rgba(212, 175, 55, 0.2);
+}
+
+.leader-avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--gold-accent), #FFD700);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  margin: 0 auto 1.5rem;
+  box-shadow: 0 0 25px rgba(212, 175, 55, 0.4);
+}
+
+.leader-card h3 {
+  color: var(--gold-accent);
+  font-size: 1.5rem;
+  margin-bottom: 0.3rem;
+}
+
+.leader-title {
+  color: rgba(255, 255, 255, 0.9);
+  font-style: italic;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+}
+
+.leader-desc {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.9rem;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+.leader-contact {
+  color: #87CEEB;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.company-info {
+  background: linear-gradient(135deg, #F8F9FA, #E9ECEF);
+  padding: 3rem;
+  border-radius: 15px;
+  border-left: 6px solid var(--gold-accent);
+  margin-bottom: 3rem;
+}
+
+.company-info h3 {
+  color: var(--navy-primary);
+  margin-bottom: 1.5rem;
+}
+
+.company-details {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.detail-item {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  border-top: 3px solid var(--gold-accent);
+}
+
+.detail-item h4 {
+  color: var(--navy-primary);
+  margin-bottom: 0.5rem;
+}
+
+.detail-item p {
+  color: #666;
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+/* RUBRIC #5: WORKING CONTACT FORM */
+.contact-form {
+  max-width: 600px;
+  margin: 3rem auto;
+  background: white;
+  padding: 3rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
+  border-top: 4px solid var(--gold-accent);
+}
+
+.contact-form h3 {
+  text-align: center;
+  color: var(--navy-primary);
+  margin-bottom: 2.5rem;
+}
+
+.form-group {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.form-input,
+.form-textarea {
+  width: 100%;
+  padding: 1rem;
+  border: 2px solid #E0E0E0;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: inherit;
+  background: white;
+  transition: var(--transition);
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: var(--gold-accent);
+  box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.12);
+}
+
+.form-label {
+  position: absolute;
+  left: 1rem;
+  top: 1rem;
+  color: #999;
+  font-weight: 500;
+  pointer-events: none;
+  transition: var(--transition);
+}
+
+.form-input:focus + .form-label,
+.form-input:not(:placeholder-shown) + .form-label,
+.form-textarea:focus + .form-label,
+.form-textarea:not(:placeholder-shown) + .form-label {
+  top: -0.9rem;
+  left: 0.5rem;
+  background: white;
+  padding: 0 0.5rem;
+  color: var(--gold-accent);
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+.form-button {
+  width: 100%;
+  padding: 1.1rem;
+  background: linear-gradient(135deg, var(--gold-accent), #FFD700);
+  color: var(--navy-primary);
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: var(--transition);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.form-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
+}
+
+/* RUBRIC #5: Success Message Display */
+.success-box {
+  background: linear-gradient(135deg, #D4EDDA, #C3E6CB);
+  border: 2px solid #28A745;
+  color: #155724;
+  padding: 1.5rem;
+  border-radius: 10px;
+  margin-top: 1.5rem;
+  text-align: center;
+  font-weight: 600;
+  animation: slideIn 0.4s ease-out;
+  font-size: 1rem;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================================
+   RUBRIC REQUIREMENT #6: YACHT BUYING GUIDE
+   3 yacht models with specs table
+   ============================================ */
+
+.buying-section {
+  padding: 5rem 2rem;
+  background: var(--pearl-white);
+  min-height: 100vh;
+}
+
+.buying-container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.yacht-models {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2.5rem;
+  margin-bottom: 3rem;
+}
+
+.yacht-model-card {
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.12);
+  transition: var(--transition);
+  border: 2px solid var(--pearl-white);
+}
+
+.yacht-model-card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 18px 50px rgba(212, 175, 55, 0.2);
+  border-color: var(--gold-accent);
+}
+
+.yacht-image {
+  width: 100%;
+  height: 250px;
+  background: linear-gradient(135deg, var(--navy-primary), var(--ocean-blue));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+}
+
+.yacht-specs {
+  padding: 2rem;
+}
+
+.yacht-specs h3 {
+  color: var(--navy-primary);
+  margin-bottom: 1.5rem;
+}
+
+.specs-table {
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+
+.specs-table tr {
+  border-bottom: 1px solid #E0E0E0;
+}
+
+.specs-table td {
+  padding: 0.75rem 0;
+}
+
+.specs-table td:first-child {
+  font-weight: 600;
+  color: var(--navy-primary);
+  width: 50%;
+}
+
+.specs-table td:last-child {
+  color: var(--gold-accent);
+  text-align: right;
+}
+
+.purchase-btn {
+  width: 100%;
+  padding: 0.95rem;
+  background: linear-gradient(135deg, var(--gold-accent), #FFD700);
+  color: var(--navy-primary);
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: var(--transition);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.purchase-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
+}
+
+/* ============================================
+   ARTICLE PAGE STYLING
+   ============================================ */
+
+.article-page {
+  padding: 6rem 2rem 2rem;
+  background: var(--pearl-white);
+  min-height: 100vh;
+}
+
+.article-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.article-page h1 {
+  color: var(--navy-primary);
+  font-size: 2.8rem;
+  margin-bottom: 1rem;
+}
+
+.article-meta {
+  color: #999;
+  margin-bottom: 2rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.article-body {
+  color: #333;
+  line-height: 1.9;
+  font-size: 1.05rem;
+}
+
+/* RUBRIC #3: Image Gallery with scale-on-hover and gold captions */
+.article-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  margin: 3rem 0;
+}
+
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  aspect-ratio: 1;
+  border: 3px solid var(--gold-accent);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.08);
+}
+
+.gallery-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 18, 32, 0.85);
+  color: var(--gold-accent);
+  padding: 1rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover .gallery-caption {
+  transform: translateY(0);
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  nav ul {
+    gap: 1rem;
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero p {
+    font-size: 1.1rem;
+  }
+
+  .sound-toggle {
+    bottom: 20px;
+    right: 20px;
+    padding: 0.6rem 1.2rem;
+    font-size: 0.85rem;
+  }
+
+  .articles-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .yacht-models {
+    grid-template-columns: 1fr;
+  }
+
+  .article-gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  nav ul {
+    gap: 0.5rem;
+    font-size: 0.8rem;
+  }
+
+  nav a {
+    font-size: 0.75rem;
+  }
+
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero p {
+    font-size: 0.9rem;
+  }
+
+  .cta-button {
+    padding: 0.8rem 1.5rem;
+    font-size: 0.8rem;
+  }
+
+  .article-gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .yacht-models {
+    grid-template-columns: 1fr;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+}

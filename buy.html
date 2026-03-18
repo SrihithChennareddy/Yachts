@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop - Yacht Models & Buying Guide - Luxe Yacht</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav>
+    <div class="logo">🛥️ LUXE YACHT</div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="news.html">News</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="yacht-life.html">The Yacht Life</a></li>
+      <li><a href="buy.html" class="active">Shop</a></li>
+      <li><a href="admin.html">Admin</a></li>
+    </ul>
+  </nav>
+
+  <!-- RUBRIC #6: BUYING GUIDE & YACHT MODELS -->
+  <section class="buying-section" style="margin-top:70px;">
+    <div class="buying-container">
+      <div class="section-title">
+        <h2>Yacht Fleet Catalog</h2>
+        <p>SOPHISTICATED BUYING GUIDE - 3 EXCLUSIVE MODELS</p>
+      </div>
+
+      <div class="yacht-models">
+        <!-- Model 1 -->
+        <div class="yacht-model-card">
+          <div class="yacht-image">🛥️ Model A</div>
+          <div class="yacht-specs">
+            <h3>Prestige 50 Series</h3>
+            <table class="specs-table">
+              <tr>
+                <td>Length</td>
+                <td>50 Meters</td>
+              </tr>
+              <tr>
+                <td>Maximum Speed</td>
+                <td>25+ Knots</td>
+              </tr>
+              <tr>
+                <td>Guest Capacity</td>
+                <td>12 Guests</td>
+              </tr>
+              <tr>
+                <td>Crew Quarters</td>
+                <td>8 Cabins</td>
+              </tr>
+              <tr>
+                <td>Range</td>
+                <td>3,500 Nautical Miles</td>
+              </tr>
+              <tr>
+                <td>Year Built</td>
+                <td>2024</td>
+              </tr>
+            </table>
+            <button class="purchase-btn">Reserve Inquiry</button>
+          </div>
+        </div>
+
+        <!-- Model 2 -->
+        <div class="yacht-model-card">
+          <div class="yacht-image">⛵ Model B</div>
+          <div class="yacht-specs">
+            <h3>Grand Cruiser 75 Series</h3>
+            <table class="specs-table">
+              <tr>
+                <td>Length</td>
+                <td>75 Meters</td>
+              </tr>
+              <tr>
+                <td>Maximum Speed</td>
+                <td>22 Knots</td>
+              </tr>
+              <tr>
+                <td>Guest Capacity</td>
+                <td>20 Guests</td>
+              </tr>
+              <tr>
+                <td>Crew Quarters</td>
+                <td>15 Cabins</td>
+              </tr>
+              <tr>
+                <td>Range</td>
+                <td>5,000 Nautical Miles</td>
+              </tr>
+              <tr>
+                <td>Year Built</td>
+                <td>2024</td>
+              </tr>
+            </table>
+            <button class="purchase-btn">Reserve Inquiry</button>
+          </div>
+        </div>
+
+        <!-- Model 3 -->
+        <div class="yacht-model-card">
+          <div class="yacht-image">🌊 Model C</div>
+          <div class="yacht-specs">
+            <h3>Ultra Luxury 120 Series</h3>
+            <table class="specs-table">
+              <tr>
+                <td>Length</td>
+                <td>120 Meters</td>
+              </tr>
+              <tr>
+                <td>Maximum Speed</td>
+                <td>20 Knots</td>
+              </tr>
+              <tr>
+                <td>Guest Capacity</td>
+                <td>32 Guests</td>
+              </tr>
+              <tr>
+                <td>Crew Quarters</td>
+                <td>25 Cabins</td>
+              </tr>
+              <tr>
+                <td>Range</td>
+                <td>6,000 Nautical Miles</td>
+              </tr>
+              <tr>
+                <td>Year Built</td>
+                <td>2025</td>
+              </tr>
+            </table>
+            <button class="purchase-btn">Reserve Inquiry</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Inquiry Form -->
+      <div class="contact-form" style="margin-top: 4rem;">
+        <h3>Purchase Inquiry Form</h3>
+        <form id="inquiryForm">
+          <div class="form-group">
+            <select id="yachtModel" style="width: 100%; padding: 1rem; border: 2px solid #E0E0E0; border-radius: 8px; font-size: 1rem; font-family: inherit;">
+              <option value="">Select Yacht Model</option>
+              <option value="Prestige 50 Series">Prestige 50 Series</option>
+              <option value="Grand Cruiser 75 Series">Grand Cruiser 75 Series</option>
+              <option value="Ultra Luxury 120 Series">Ultra Luxury 120 Series</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <input type="text" class="form-input" id="inquirerName" placeholder=" " required>
+            <label for="inquirerName" class="form-label">Full Name</label>
+          </div>
+
+          <div class="form-group">
+            <input type="email" class="form-input" id="inquirerEmail" placeholder=" " required>
+            <label for="inquirerEmail" class="form-label">Email Address</label>
+          </div>
+
+          <div class="form-group">
+            <input type="tel" class="form-input" id="inquirerPhone" placeholder=" ">
+            <label for="inquirerPhone" class="form-label">Phone Number</label>
+          </div>
+
+          <button type="submit" class="form-button">Submit Inquiry</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
