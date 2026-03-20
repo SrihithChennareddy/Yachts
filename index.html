@@ -3,193 +3,266 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Luxe Yacht - Ultra-Premium Luxury Yachting Experience. Explore the world's finest yacht engineering, exclusive sailing routes, and bespoke marine luxury.">
+  <meta name="theme-color" content="#001220">
   <title>Luxe Yacht - Ultra-Premium Luxury Yachting</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- RUBRIC #1: PERSISTENT GLASSMORPHISM NAVBAR -->
-  <nav>
-    <div class="logo">🛥️ LUXE YACHT</div>
-    <ul>
-      <li><a href="index.html" class="active">Home</a></li>
-      <li><a href="news.html">News</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="yacht-life.html">The Yacht Life</a></li>
-      <li><a href="buy.html">Shop</a></li>
-      <li><a href="admin.html">Admin</a></li>
-    </ul>
+  <!-- PROFESSIONAL GLASSMORPHISM NAVBAR -->
+  <nav class="navbar-primary">
+    <div class="navbar-container">
+      <div class="logo-brand">
+        <span class="logo-icon">⚓</span>
+        <div class="logo-text">
+          <div class="logo-main">LUXE</div>
+          <div class="logo-sub">YACHT</div>
+        </div>
+      </div>
+      <ul class="nav-menu">
+        <li><a href="index.html" class="nav-link active">Home</a></li>
+        <li><a href="news.html" class="nav-link">News</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+        <li><a href="yacht-life.html" class="nav-link">The Yacht Life</a></li>
+        <li><a href="buy.html" class="nav-link">Shop</a></li>
+        <li><a href="admin.html" class="nav-link">Admin</a></li>
+      </ul>
+    </div>
   </nav>
 
-  <!-- RUBRIC #2: HERO SECTION WITH ANIMATIONS -->
-  <section class="hero">
-    <!-- Dynamic Weather Background -->
-    <div class="hero-background"></div>
+  <!-- PREMIUM HERO SECTION WITH VIDEO BACKGROUND -->
+  <section class="hero" aria-label="Hero section with aerial panoramic video">
+    <!-- Video Background -->
+    <video class="hero-video" autoplay muted loop playsinline>
+      <source src="assets/mixkit-aerial-panorama-of-a-tourist-port-at-sunset-40080-hd-ready.mp4" type="video/mp4">
+    </video>
 
-    <!-- Drifting Clouds -->
-    <div class="cloud-container">
-      <svg class="cloud cloud1" viewBox="0 0 180 60" xmlns="http://www.w3.org/2000/svg">
-        <path d="M 20 40 Q 20 20 40 20 Q 55 10 70 20 Q 85 5 105 20 Q 120 10 140 35" fill="currentColor" opacity="0.8"/>
-      </svg>
-      <svg class="cloud cloud2" viewBox="0 0 140 50" xmlns="http://www.w3.org/2000/svg">
-        <path d="M 15 35 Q 15 18 32 18 Q 45 10 58 18 Q 70 8 85 28" fill="currentColor" opacity="0.7"/>
-      </svg>
-      <svg class="cloud cloud3" viewBox="0 0 160 55" xmlns="http://www.w3.org/2000/svg">
-        <path d="M 18 38 Q 18 20 38 20 Q 52 12 68 20 Q 82 10 100 25 Q 118 15 140 38" fill="currentColor" opacity="0.6"/>
-      </svg>
+    <!-- Atmospheric Mist Overlay Layers -->
+    <div class="hero-mist-layer hero-mist-layer-1"></div>
+    <div class="hero-mist-layer hero-mist-layer-2"></div>
+    <div class="hero-mist-layer hero-mist-layer-3"></div>
+
+    <!-- Dark gradient overlay for text readability -->
+    <div class="hero-overlay"></div>
+
+    <!-- Professional Branding with Advanced Animations -->
+    <div class="hero-content-premium">
+      <div class="hero-brand-title">
+        <div class="text-reveal-wrapper">
+          <h1 class="hero-title-main">LUXE YACHT</h1>
+        </div>
+        <div class="hero-title-divider"></div>
+        <div class="text-reveal-wrapper">
+          <p class="hero-tagline">Experience the Ocean's Ultimate Elegance</p>
+        </div>
+      </div>
+
+      <div class="hero-features">
+        <div class="feature-badge badge-fade-1">⟨ Heritage Since 1995 ⟩</div>
+        <div class="feature-badge badge-fade-2">⟨ Global Excellence ⟩</div>
+        <div class="feature-badge badge-fade-3">⟨ Bespoke Luxury ⟩</div>
+      </div>
+
+      <div class="cta-wrapper">
+        <a href="#articles" class="cta-button cta-primary">Explore Collections</a>
+        <a href="buy.html" class="cta-button cta-secondary">Shop Now</a>
+      </div>
     </div>
 
-    <!-- RUBRIC #2: YACHT SILHOUETTE WITH SAILING ANIMATION -->
-    <div class="yacht-container">
-      <svg class="yacht-svg" viewBox="0 0 300 150" xmlns="http://www.w3.org/2000/svg">
-        <line x1="0" y1="100" x2="300" y2="100" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
-        <path d="M 50 100 L 65 75 L 235 75 L 250 100 Z" fill="rgba(255,255,255,0.9)" stroke="rgba(212,175,55,0.8)" stroke-width="2"/>
-        <rect x="140" y="45" width="65" height="32" rx="5" fill="rgba(255,255,255,0.85)" stroke="rgba(212,175,55,0.8)" stroke-width="1.5"/>
-        <circle cx="150" cy="57" r="2.5" fill="rgba(0,0,0,0.3)"/>
-        <circle cx="168" cy="57" r="2.5" fill="rgba(0,0,0,0.3)"/>
-        <circle cx="186" cy="57" r="2.5" fill="rgba(0,0,0,0.3)"/>
-        <line x1="150" y1="45" x2="150" y2="12" stroke="rgba(212,175,55,0.9)" stroke-width="2.5"/>
-        <path d="M 150 18 L 162 98 L 185 98 Z" fill="rgba(255,255,255,0.75)" stroke="rgba(212,175,55,0.6)" stroke-width="1"/>
-        <path d="M 150 22 L 108 98 L 140 98 Z" fill="rgba(255,255,255,0.65)" stroke="rgba(212,175,55,0.5)" stroke-width="1"/>
-        <path d="M 150 12 L 168 20 L 160 10 Z" fill="rgba(212,175,55,0.95)"/>
-        <circle cx="78" cy="103" r="2" fill="rgba(212,175,55,0.85)"/>
-      </svg>
-    </div>
-
-    <!-- Hero Content -->
-    <div class="hero-content">
-      <h1>LUXE YACHT</h1>
-      <p>Experience the Ocean's Ultimate Elegance</p>
-      <a href="#articles" class="cta-button">Explore Collections</a>
-    </div>
-
-    <!-- RUBRIC #2: SOUND TOGGLE BUTTON -->
-    <button class="sound-toggle">🔉 Ambiance Off</button>
+    <!-- IMMERSIVE SOUND TOGGLE -->
+    <button class="sound-toggle" aria-label="Toggle ambient ocean and jazz music" title="Click to toggle ambient sound">♪ AMBIANCE</button>
   </section>
 
-  <!-- RUBRIC #1: 10-ARTICLE GRID SECTION -->
-  <section class="articles-section" id="articles">
+  <!-- RUBRIC #1: 10-ARTICLE GRID SECTION WITH YACHT IMAGES -->
+  <section class="articles-section" id="articles" aria-label="Featured collections grid">
     <div class="section-title">
       <h2>Featured Collections</h2>
       <p>DISCOVER LUXURY YACHT ENGINEERING</p>
+      <div class="title-underline"></div>
     </div>
 
     <div class="articles-grid">
-      <!-- RUBRIC #1: ARTICLE 1 - FUNCTIONAL -->
-      <div class="article-card">
-        <div class="article-image">⛵</div>
+      <!-- ARTICLE 1 - Yacht Engineering -->
+      <div class="article-card" data-article-id="1">
+        <div class="article-image-real">
+          <img src="images/adastra-1-courtesy-jochen-manz_orion-shuttleworth.png" alt="Ultra-luxury adastra yacht">
+          <div class="image-overlay-shine"></div>
+        </div>
         <div class="article-content">
           <h3>Yacht Engineering Excellence</h3>
           <p>Advanced hull technology and marine engineering that defines modern luxury yachting performance.</p>
           <a href="article1.html" class="read-more-btn">Read Article</a>
         </div>
+        <div class="card-overlay"></div>
       </div>
 
-      <!-- RUBRIC #1: ARTICLE 2 - FUNCTIONAL -->
-      <div class="article-card">
-        <div class="article-image">🌊</div>
+      <!-- ARTICLE 2 - Mediterranean Routes -->
+      <div class="article-card" data-article-id="2">
+        <div class="article-image-real">
+          <img src="images/GgGSXHCXTO6iiq4iwEt1_adastra-burgess-advertorial-hero-2560x1440.png" alt="Mediterranean yacht sailing">
+          <div class="image-overlay-shine"></div>
+        </div>
         <div class="article-content">
           <h3>Mediterranean Sailing Routes</h3>
           <p>Explore the world's most exclusive and breathtaking yacht destinations across the Mediterranean.</p>
           <a href="article2.html" class="read-more-btn">Read Article</a>
         </div>
+        <div class="card-overlay"></div>
       </div>
 
-      <!-- RUBRIC #1: ARTICLE 3 - FUNCTIONAL -->
-      <div class="article-card">
-        <div class="article-image">🌱</div>
+      <!-- ARTICLE 3 - Sustainable Sailing -->
+      <div class="article-card" data-article-id="3">
+        <div class="article-image-real">
+          <img src="images/59858a70-3bb7-11eb-957a-6996e21593a4-top-25-Azzam-credit-Klaus-Jordan-Lurssen.png" alt="Sustainable luxury yacht">
+          <div class="image-overlay-shine"></div>
+        </div>
         <div class="article-content">
           <h3>Sustainable Sailing</h3>
           <p>Eco-conscious yachting practices and revolutionary green marine technology for modern sailors.</p>
           <a href="article3.html" class="read-more-btn">Read Article</a>
         </div>
+        <div class="card-overlay"></div>
       </div>
 
-      <!-- RUBRIC #1: ARTICLES 4-10 - LOCKED/COMING SOON -->
-      <div class="article-card">
-        <div class="article-image">🚤</div>
+      <!-- ARTICLE 4 - LOCKED -->
+      <div class="article-card locked" data-article-id="4">
+        <div class="article-image">⚡</div>
         <div class="article-content">
           <h3>Performance & Speed</h3>
           <p>High-performance marine engines and cutting-edge propulsion systems for ultimate cruising.</p>
         </div>
         <div class="lock-overlay">
-          <h3>🔒 Coming Soon</h3>
+          <h3>⊙ Coming Soon</h3>
           <p>Exclusive Feature</p>
         </div>
       </div>
 
-      <div class="article-card">
-        <div class="article-image">🧭</div>
+      <!-- RUBRIC #1: ARTICLE 5 - LOCKED -->
+      <div class="article-card locked" data-article-id="5">
+        <div class="article-image">◆</div>
         <div class="article-content">
           <h3>Navigation Systems</h3>
           <p>Advanced marine navigation and autonomous systems for safe oceanic exploration.</p>
         </div>
         <div class="lock-overlay">
-          <h3>🔒 Coming Soon</h3>
+          <h3>⊙ Coming Soon</h3>
           <p>Exclusive Feature</p>
         </div>
       </div>
 
-      <div class="article-card">
-        <div class="article-image">💎</div>
+      <!-- RUBRIC #1: ARTICLE 6 - LOCKED -->
+      <div class="article-card locked" data-article-id="6">
+        <div class="article-image">◈</div>
         <div class="article-content">
           <h3>Luxury Interiors</h3>
           <p>Opulent cabin designs and premium materials that redefine maritime living standards.</p>
         </div>
         <div class="lock-overlay">
-          <h3>🔒 Coming Soon</h3>
+          <h3>⊙ Coming Soon</h3>
           <p>Exclusive Feature</p>
         </div>
       </div>
 
-      <div class="article-card">
-        <div class="article-image">⚓</div>
+      <!-- RUBRIC #1: ARTICLE 7 - LOCKED -->
+      <div class="article-card locked" data-article-id="7">
+        <div class="article-image">■</div>
         <div class="article-content">
           <h3>Marine Safety</h3>
           <p>Comprehensive safety systems and emergency protocols for complete peace of mind.</p>
         </div>
         <div class="lock-overlay">
-          <h3>🔒 Coming Soon</h3>
+          <h3>⊙ Coming Soon</h3>
           <p>Exclusive Feature</p>
         </div>
       </div>
 
-      <div class="article-card">
-        <div class="article-image">✨</div>
+      <!-- RUBRIC #1: ARTICLE 8 - LOCKED -->
+      <div class="article-card locked" data-article-id="8">
+        <div class="article-image">✦</div>
         <div class="article-content">
           <h3>Yacht Customization</h3>
           <p>Tailor every aspect of your vessel with our bespoke customization services.</p>
         </div>
         <div class="lock-overlay">
-          <h3>🔒 Coming Soon</h3>
+          <h3>⊙ Coming Soon</h3>
           <p>Exclusive Feature</p>
         </div>
       </div>
 
-      <div class="article-card">
-        <div class="article-image">🏆</div>
+      <!-- RUBRIC #1: ARTICLE 9 - LOCKED -->
+      <div class="article-card locked" data-article-id="9">
+        <div class="article-image">★</div>
         <div class="article-content">
           <h3>Award-Winning Designs</h3>
           <p>Celebrating globally recognized yacht designs and architectural innovations.</p>
         </div>
         <div class="lock-overlay">
-          <h3>🔒 Coming Soon</h3>
+          <h3>⊙ Coming Soon</h3>
           <p>Exclusive Feature</p>
         </div>
       </div>
 
-      <div class="article-card">
-        <div class="article-image">🌍</div>
+      <!-- RUBRIC #1: ARTICLE 10 - LOCKED -->
+      <div class="article-card locked" data-article-id="10">
+        <div class="article-image">◐</div>
         <div class="article-content">
           <h3>Global Charter Network</h3>
           <p>Access to exclusive yacht charter experiences across the world's finest destinations.</p>
         </div>
         <div class="lock-overlay">
-          <h3>🔒 Coming Soon</h3>
+          <h3>⊙ Coming Soon</h3>
           <p>Exclusive Feature</p>
         </div>
       </div>
     </div>
   </section>
+
+  <!-- FOOTER SECTION -->
+  <footer class="footer-section">
+    <div class="footer-container">
+      <div class="footer-content">
+        <div class="footer-column">
+          <h4>LUXE YACHT</h4>
+          <p>Experience ultra-premium luxury yachting since 1995. Based in Monaco.</p>
+          <div class="social-links">
+            <a href="#" aria-label="Visit Facebook">f</a>
+            <a href="#" aria-label="Visit Instagram">📷</a>
+            <a href="#" aria-label="Visit LinkedIn">in</a>
+          </div>
+        </div>
+        <div class="footer-column">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="buy.html">Shop</a></li>
+            <li><a href="news.html">News</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Contact</h4>
+          <ul>
+            <li>📧 info@luxeyacht.com</li>
+            <li>📱 +377 93 15 77 77</li>
+            <li>📍 Monaco, France</li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Newsletter</h4>
+          <form class="newsletter-form" id="newsletterForm">
+            <input type="email" placeholder="Your email" required>
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Luxe Yacht. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll to Top Button -->
+  <button class="scroll-to-top" id="scrollToTop" aria-label="Scroll to top" title="Back to top">↑</button>
 
   <script src="script.js"></script>
 </body>
