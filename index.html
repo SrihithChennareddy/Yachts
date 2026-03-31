@@ -19,13 +19,25 @@
           <div class="logo-sub">YACHT</div>
         </div>
       </div>
+      <!-- Floating Bubbles -->
+      <!-- Floating Bubbles -->
+      <div class="logo-bubble"></div>
+      <div class="logo-bubble"></div>
+      <div class="logo-bubble"></div>
+      <div class="logo-bubble"></div>
+      <div class="logo-bubble"></div>
       <ul class="nav-menu">
+      <div class="logo-bubble"></div>
+      <div class="logo-bubble"></div>
+      <div class="logo-bubble"></div>
+      <div class="logo-bubble"></div>
         <li><a href="index.html" class="nav-link active">Home</a></li>
-        <li><a href="news.html" class="nav-link">News</a></li>
-        <li><a href="about.html" class="nav-link">About</a></li>
-        <li><a href="yacht-life.html" class="nav-link">The Yacht Life</a></li>
-        <li><a href="buy.html" class="nav-link">Shop</a></li>
-        <li><a href="admin.html" class="nav-link">Admin</a></li>
+        <li><a href="Pages/articles.html" class="nav-link">Articles</a></li>
+        <li><a href="Pages/news.html" class="nav-link">News</a></li>
+        <li><a href="Pages/about.html" class="nav-link">About</a></li>
+        <li><a href="Pages/yacht-life.html" class="nav-link">The Yacht Life</a></li>
+        <li><a href="Pages/buy.html" class="nav-link">Shop</a></li>
+        <li><a href="Pages/admin.html" class="nav-link">Admin</a></li>
       </ul>
     </div>
   </nav>
@@ -35,6 +47,11 @@
     <!-- Video Background -->
     <video class="hero-video" autoplay muted loop playsinline>
       <source src="assets/mixkit-aerial-panorama-of-a-tourist-port-at-sunset-40080-hd-ready.mp4" type="video/mp4">
+      <source src="assets/119445-717712231.mp4" type="video/mp4">
+      <source src="assets/13521454_640_360_30fps.mp4" type="video/mp4">
+      <source src="assets/15006240_1080_1920_60fps.mp4" type="video/mp4">
+      <source src="assets/Screen%20Recording%202026-03-31%20at%2011.37.14%20AM.mov" type="video/quicktime">
+      Your browser does not support the video tag.
     </video>
 
     <!-- Atmospheric Mist Overlay Layers -->
@@ -65,7 +82,7 @@
 
       <div class="cta-wrapper">
         <a href="#articles" class="cta-button cta-primary">Explore Collections</a>
-        <a href="buy.html" class="cta-button cta-secondary">Shop Now</a>
+        <a href="Pages/buy.html" class="cta-button cta-secondary">Shop Now</a>
       </div>
     </div>
 
@@ -89,9 +106,9 @@
           <div class="image-overlay-shine"></div>
         </div>
         <div class="article-content">
-          <h3>Yacht Engineering Excellence</h3>
-          <p>Advanced hull technology and marine engineering that defines modern luxury yachting performance.</p>
-          <a href="article1.html" class="read-more-btn">Read Article</a>
+          <h3>Innovation at Sea</h3>
+          <p>Yacht engineering transformed by sustainability, automation, and advanced materials—discover the future of luxury marine innovation.</p>
+          <a href="Pages/article1.html" class="read-more-btn">Click Article</a>
         </div>
         <div class="card-overlay"></div>
       </div>
@@ -105,7 +122,7 @@
         <div class="article-content">
           <h3>Mediterranean Sailing Routes</h3>
           <p>Explore the world's most exclusive and breathtaking yacht destinations across the Mediterranean.</p>
-          <a href="article2.html" class="read-more-btn">Read Article</a>
+          <a href="Pages/article2.html" class="read-more-btn">Click Article</a>
         </div>
         <div class="card-overlay"></div>
       </div>
@@ -119,100 +136,32 @@
         <div class="article-content">
           <h3>Sustainable Sailing</h3>
           <p>Eco-conscious yachting practices and revolutionary green marine technology for modern sailors.</p>
-          <a href="article3.html" class="read-more-btn">Read Article</a>
+          <a href="Pages/article3.html" class="read-more-btn">Click Article</a>
         </div>
         <div class="card-overlay"></div>
       </div>
+    </div>
+  </section>
 
-      <!-- ARTICLE 4 - LOCKED -->
-      <div class="article-card locked" data-article-id="4">
-        <div class="article-image">⚡</div>
-        <div class="article-content">
-          <h3>Performance & Speed</h3>
-          <p>High-performance marine engines and cutting-edge propulsion systems for ultimate cruising.</p>
-        </div>
-        <div class="lock-overlay">
-          <h3>⊙ Coming Soon</h3>
-          <p>Exclusive Feature</p>
-        </div>
-      </div>
+  <!-- FEEDBACK FORM SECTION -->
+  <section class="feedback-section" style="padding: 4rem 2rem; background: rgba(0, 27, 46, 0.6);">
+    <div class="about-container">
+      <div class="contact-form">
+        <h3 style="text-align: center; color: #D4AF37; margin-bottom: 0.5rem; font-size: 1.4rem;">Share Your Feedback</h3>
+        <p style="text-align: center; color: #999; margin-bottom: 2rem;">We'd love to hear from you</p>
+        <form id="feedbackForm">
+          <div class="form-group">
+            <input type="text" class="form-input" id="feedbackName" placeholder=" " required>
+            <label for="feedbackName" class="form-label">Full Name</label>
+          </div>
 
-      <!-- RUBRIC #1: ARTICLE 5 - LOCKED -->
-      <div class="article-card locked" data-article-id="5">
-        <div class="article-image">◆</div>
-        <div class="article-content">
-          <h3>Navigation Systems</h3>
-          <p>Advanced marine navigation and autonomous systems for safe oceanic exploration.</p>
-        </div>
-        <div class="lock-overlay">
-          <h3>⊙ Coming Soon</h3>
-          <p>Exclusive Feature</p>
-        </div>
-      </div>
+          <div class="form-group">
+            <textarea class="form-textarea" id="feedbackMessage" placeholder=" " rows="5" required></textarea>
+            <label for="feedbackMessage" class="form-label">Message</label>
+          </div>
 
-      <!-- RUBRIC #1: ARTICLE 6 - LOCKED -->
-      <div class="article-card locked" data-article-id="6">
-        <div class="article-image">◈</div>
-        <div class="article-content">
-          <h3>Luxury Interiors</h3>
-          <p>Opulent cabin designs and premium materials that redefine maritime living standards.</p>
-        </div>
-        <div class="lock-overlay">
-          <h3>⊙ Coming Soon</h3>
-          <p>Exclusive Feature</p>
-        </div>
-      </div>
-
-      <!-- RUBRIC #1: ARTICLE 7 - LOCKED -->
-      <div class="article-card locked" data-article-id="7">
-        <div class="article-image">■</div>
-        <div class="article-content">
-          <h3>Marine Safety</h3>
-          <p>Comprehensive safety systems and emergency protocols for complete peace of mind.</p>
-        </div>
-        <div class="lock-overlay">
-          <h3>⊙ Coming Soon</h3>
-          <p>Exclusive Feature</p>
-        </div>
-      </div>
-
-      <!-- RUBRIC #1: ARTICLE 8 - LOCKED -->
-      <div class="article-card locked" data-article-id="8">
-        <div class="article-image">✦</div>
-        <div class="article-content">
-          <h3>Yacht Customization</h3>
-          <p>Tailor every aspect of your vessel with our bespoke customization services.</p>
-        </div>
-        <div class="lock-overlay">
-          <h3>⊙ Coming Soon</h3>
-          <p>Exclusive Feature</p>
-        </div>
-      </div>
-
-      <!-- RUBRIC #1: ARTICLE 9 - LOCKED -->
-      <div class="article-card locked" data-article-id="9">
-        <div class="article-image">★</div>
-        <div class="article-content">
-          <h3>Award-Winning Designs</h3>
-          <p>Celebrating globally recognized yacht designs and architectural innovations.</p>
-        </div>
-        <div class="lock-overlay">
-          <h3>⊙ Coming Soon</h3>
-          <p>Exclusive Feature</p>
-        </div>
-      </div>
-
-      <!-- RUBRIC #1: ARTICLE 10 - LOCKED -->
-      <div class="article-card locked" data-article-id="10">
-        <div class="article-image">◐</div>
-        <div class="article-content">
-          <h3>Global Charter Network</h3>
-          <p>Access to exclusive yacht charter experiences across the world's finest destinations.</p>
-        </div>
-        <div class="lock-overlay">
-          <h3>⊙ Coming Soon</h3>
-          <p>Exclusive Feature</p>
-        </div>
+          <button type="submit" class="form-button">Submit Feedback</button>
+        </form>
       </div>
     </div>
   </section>
@@ -234,9 +183,9 @@
           <h4>Quick Links</h4>
           <ul>
             <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="buy.html">Shop</a></li>
-            <li><a href="news.html">News</a></li>
+            <li><a href="Pages/about.html">About Us</a></li>
+            <li><a href="Pages/buy.html">Shop</a></li>
+            <li><a href="Pages/news.html">News</a></li>
           </ul>
         </div>
         <div class="footer-column">

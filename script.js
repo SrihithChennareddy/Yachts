@@ -125,6 +125,46 @@ class FormStateManager {
 }
 
 // ============================================
+// LOCAL STORAGE MESSAGE MANAGER
+// Handles feedback and inquiry messages
+// ============================================
+
+class MessageManager {
+  constructor() {
+    this.storageKey = 'luxeyacht_messages';
+  }
+
+  addMessage(formType, data) {
+    const messages = this.getAllMessages();
+    messages.push({
+      id: Date.now(),
+      formType: formType,
+      data: data,
+      timestamp: new Date().toLocaleString()
+    });
+    localStorage.setItem(this.storageKey, JSON.stringify(messages));
+  }
+
+  getAllMessages() {
+    const stored = localStorage.getItem(this.storageKey);
+    return stored ? JSON.parse(stored) : [];
+  }
+
+  getMessagesByType(formType) {
+    return this.getAllMessages().filter(msg => msg.formType === formType);
+  }
+
+  deleteMessage(id) {
+    const messages = this.getAllMessages().filter(msg => msg.id !== id);
+    localStorage.setItem(this.storageKey, JSON.stringify(messages));
+  }
+
+  clearAll() {
+    localStorage.removeItem(this.storageKey);
+  }
+}
+
+// ============================================
 // RUBRIC #2: IMMERSIVE AUDIO SYSTEM
 // Sound Toggle - Ocean Waves + Lounge Jazz
 // ============================================
@@ -233,6 +273,7 @@ function stopAudio() {
 // ============================================
 
 const formManager = new FormStateManager();
+const messageManager = new MessageManager();
 
 function initContactForm() {
   const form = document.getElementById('contactForm');
@@ -265,6 +306,9 @@ function handleFormSubmit(e) {
   
   // RUBRIC #5: Save state
   formManager.saveState('contactForm', formData);
+  
+  // Store in localStorage
+  messageManager.addMessage('contact', formData);
   
   // RUBRIC #5: Display captured data
   console.log('Form Data Captured:', formData);
@@ -314,13 +358,15 @@ function showFormMessage(message, type) {
 // ============================================
 
 function updateActiveNavLink() {
-  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+  const pathname = window.location.pathname;
+  const currentPage = pathname.split('/').pop() || 'index.html';
   const navLinks = document.querySelectorAll('nav a');
   
   navLinks.forEach(link => {
     const href = link.getAttribute('href');
+    const hrefPage = href.split('/').pop();
     
-    if (href === currentPage || (currentPage === '' && href === 'index.html')) {
+    if (hrefPage === currentPage || (currentPage === '' && hrefPage === 'index.html')) {
       link.classList.add('active');
     } else {
       link.classList.remove('active');
@@ -509,30 +555,95 @@ function initInquiryForm() {
   inquiryForm.addEventListener('submit', handleInquirySubmit);
 }
 
+// ============================================
+// FEEDBACK FORM FUNCTIONALITY
+// ============================================
+
+function initFeedbackForm() {
+  const feedbackForm = document.getElementById('feedbackForm');
+  
+  if (!feedbackForm) return;
+  
+  feedbackForm.addEventListener('submit', handleFeedbackSubmit);
+}
+
+function handleFeedbackSubmit(e) {
+  e.preventDefault();
+  
+  const feedbackName = document.getElementById('feedbackName').value.trim();
+  const feedbackMessage = document.getElementById('feedbackMessage').value.trim();
+  
+  // Validation
+  if (!feedbackName || feedbackName.length < 2) {
+    formManager.displayFieldError('feedbackName', 'Invalid name');
+    showFeedbackMessage('❌ Please enter a valid full name', 'error');
+    return;
+  }
+  
+  if (!feedbackMessage || feedbackMessage.length < 10) {
+    formManager.displayFieldError('feedbackMessage', 'Invalid message');
+    showFeedbackMessage('❌ Message must be at least 10 characters', 'error');
+    return;
+  }
+  
+  const feedbackData = { feedbackName, feedbackMessage };
+  
+  // Store in localStorage
+  messageManager.addMessage('feedback', feedbackData);
+  
+  console.log('Feedback Submitted:', feedbackData);
+  
+  showFeedbackMessage(
+    `✓ Thank you, ${feedbackName}! Your feedback has been recorded.`,
+    'success'
+  );
+  
+  document.getElementById('feedbackForm').reset();
+}
+
+function showFeedbackMessage(message, type) {
+  const form = document.getElementById('feedbackForm');
+  if (!form) return;
+  
+  const existing = form.querySelector('.success-box');
+  if (existing) {
+    existing.remove();
+  }
+  
+  const messageBox = document.createElement('div');
+  messageBox.className = 'success-box';
+  messageBox.textContent = message;
+  messageBox.style.animation = 'slideIn 0.4s ease-out';
+  form.appendChild(messageBox);
+  
+  setTimeout(() => {
+    messageBox.style.animation = 'slideOut 0.3s ease-in forwards';
+    setTimeout(() => {
+      messageBox.remove();
+    }, 300);
+  }, 5000);
+}
+
 function handleInquirySubmit(e) {
   e.preventDefault();
   
   const yachtModel = document.getElementById('yachtModel').value;
   const inquirerName = document.getElementById('inquirerName').value.trim();
-  const inquirerEmail = document.getElementById('inquirerEmail').value.trim();
-  const inquirerPhone = document.getElementById('inquirerPhone').value.trim();
   
-  const inquiryData = { yachtModel, inquirerName, inquirerEmail, inquirerPhone };
+  const inquiryData = { yachtModel, inquirerName };
   
-  // Validate using state manager
-  const errors = formManager.validateForm({ 
-    name: inquirerName, 
-    email: inquirerEmail, 
-    phone: inquirerPhone 
-  });
-  
-  if (errors) {
-    showFormMessage('❌ Please check your input and try again', 'error');
+  // Validate - name only (email and phone optional)
+  if (!inquirerName || inquirerName.length < 2) {
+    formManager.displayFieldError('inquirerName', 'Invalid name');
+    showFormMessage('❌ Please enter a valid full name', 'error');
     return;
   }
   
   // Save state
   formManager.saveState('inquiryForm', inquiryData);
+  
+  // Store in localStorage
+  messageManager.addMessage('inquiry', inquiryData);
   
   console.log('Purchase Inquiry:', inquiryData);
   
@@ -546,26 +657,111 @@ function handleInquirySubmit(e) {
 
 // ============================================
 // ADMIN PAGE FUNCTIONALITY
+// Display all stored messages locally
 // ============================================
 
 function initAdminPage() {
-  const adminButton = document.getElementById('adminLoginBtn');
+  const adminContainer = document.getElementById('adminMessagesContainer');
   
-  if (adminButton) {
-    adminButton.addEventListener('click', handleAdminLogin);
-  }
+  if (!adminContainer) return;
+  
+  displayAllMessages();
 }
 
-function handleAdminLogin() {
-  const password = prompt('Enter admin password:');
+function displayAllMessages() {
+  const container = document.getElementById('adminMessagesContainer');
+  if (!container) return;
   
-  if (password === 'LUXEYACHT2025') {
-    alert('✓ Admin access granted!');
-    // In production, this would make an API call
-    console.log('Admin authenticated');
-  } else if (password !== null) {
-    alert('❌ Invalid password');
+  const messages = messageManager.getAllMessages();
+  
+  // Clear container
+  container.innerHTML = '';
+  
+  if (messages.length === 0) {
+    container.innerHTML = '<p style="color: #999; text-align: center; padding: 2rem;">No messages yet</p>';
+    return;
   }
+  
+  // Group by type
+  const feedback = messages.filter(m => m.formType === 'feedback');
+  const inquiries = messages.filter(m => m.formType === 'inquiry');
+  const contact = messages.filter(m => m.formType === 'contact');
+  
+  let html = '';
+  
+  if (feedback.length > 0) {
+    html += `<div style="margin-bottom: 2rem;">
+      <h3 style="color: #D4AF37; margin-bottom: 1rem;">📝 Feedback Messages (${feedback.length})</h3>
+      ${feedback.map(msg => createMessageHTML(msg)).join('')}
+    </div>`;
+  }
+  
+  if (inquiries.length > 0) {
+    html += `<div style="margin-bottom: 2rem;">
+      <h3 style="color: #D4AF37; margin-bottom: 1rem;">🛥️ Yacht Purchase Inquiries (${inquiries.length})</h3>
+      ${inquiries.map(msg => createInquiryHTML(msg)).join('')}
+    </div>`;
+  }
+  
+  if (contact.length > 0) {
+    html += `<div style="margin-bottom: 2rem;">
+      <h3 style="color: #D4AF37; margin-bottom: 1rem;">💬 Contact Messages (${contact.length})</h3>
+      ${contact.map(msg => createContactHTML(msg)).join('')}
+    </div>`;
+  }
+  
+  container.innerHTML = html;
+  
+  // Attach delete handlers
+  document.querySelectorAll('.delete-message').forEach(btn => {
+    btn.addEventListener('click', function() {
+      const id = parseInt(this.dataset.id);
+      if (confirm('Delete this message?')) {
+        messageManager.deleteMessage(id);
+        displayAllMessages();
+      }
+    });
+  });
+}
+
+function createMessageHTML(msg) {
+  return `
+    <div style="background: rgba(212, 175, 55, 0.08); padding: 1.5rem; border-radius: 8px; margin-bottom: 1rem; border-left: 4px solid #D4AF37;">
+      <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 0.5rem;">
+        <strong style="color: black;">${msg.data.feedbackName}</strong>
+        <small style="color: #999;">${msg.timestamp}</small>
+      </div>
+      <p style="color: #E0E0E0; margin-bottom: 1rem; line-height: 1.6;">${msg.data.feedbackMessage}</p>
+      <button class="delete-message" data-id="${msg.id}" style="background: #FF6B6B; color: white; border: none; padding: 0.5rem 1rem; border-radius: 5px; cursor: pointer;">Delete</button>
+    </div>
+  `;
+}
+
+function createInquiryHTML(msg) {
+  return `
+    <div style="background: rgba(212, 175, 55, 0.08); padding: 1.5rem; border-radius: 8px; margin-bottom: 1rem; border-left: 4px solid #D4AF37;">
+      <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 0.5rem;">
+        <strong style="color: black;">${msg.data.inquirerName}</strong>
+        <small style="color: #999;">${msg.timestamp}</small>
+      </div>
+      <p style="color: #E0E0E0; margin-bottom: 1rem;"><strong>Model:</strong> ${msg.data.yachtModel}</p>
+      <button class="delete-message" data-id="${msg.id}" style="background: #FF6B6B; color: white; border: none; padding: 0.5rem 1rem; border-radius: 5px; cursor: pointer;">Delete</button>
+    </div>
+  `;
+}
+
+function createContactHTML(msg) {
+  return `
+    <div style="background: rgba(212, 175, 55, 0.08); padding: 1.5rem; border-radius: 8px; margin-bottom: 1rem; border-left: 4px solid #D4AF37;">
+      <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 0.5rem;">
+        <strong style="color: black;">${msg.data.name}</strong>
+        <small style="color: #999;">${msg.timestamp}</small>
+      </div>
+      <p style="color: #999; margin-bottom: 0.5rem;">📧 ${msg.data.email}</p>
+      <p style="color: #E0E0E0; margin-bottom: 1rem; line-height: 1.6;">${msg.data.message}</p>
+      <button class="delete-message" data-id="${msg.id}" style="background: #FF6B6B; color: white; border: none; padding: 0.5rem 1rem; border-radius: 5px; cursor: pointer;">Delete</button>
+    </div>
+  `;
 }
 
 // ============================================
@@ -579,6 +775,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Initialize all modules
   initSoundToggle();
   initContactForm();
+  initFeedbackForm();
   initInquiryForm();
   initPurchaseButtons();
   initFloatingLabels();

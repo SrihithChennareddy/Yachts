@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop - Yacht Models & Buying Guide - Luxe Yacht</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <!-- PROFESSIONAL NAVBAR -->
+  <nav class="navbar-primary">
+    <div class="navbar-container">
+      <div class="logo-brand">
+        <span class="logo-icon">⚓</span>
+        <div class="logo-text">
+          <div class="logo-main">LUXE</div>
+          <div class="logo-sub">YACHT</div>
+        </div>
+      </div>
+      <ul class="nav-menu">
+        <li><a href="../index.html" class="nav-link">Home</a></li>
+        <li><a href="articles.html" class="nav-link">Articles</a></li>
+        <li><a href="news.html" class="nav-link">News</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+        <li><a href="yacht-life.html" class="nav-link">The Yacht Life</a></li>
+        <li><a href="buy.html" class="nav-link active">Shop</a></li>
+        <li><a href="admin.html" class="nav-link">Admin</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- YACHT FLEET SHOWCASE -->
+  <section class="buying-section" style="margin-top:70px;">
+    <div class="buying-container">
+      <div class="section-title">
+        <h2>Yacht Fleet Catalog</h2>
+        <p>SOPHISTICATED BUYING GUIDE - 3 EXCLUSIVE MODELS</p>
+      </div>
+
+      <div class="yacht-models">
+        <!-- Model 1 - Prestige 50 -->
+        <div class="yacht-model-card">
+          <div class="yacht-image-real">
+            <img src="../images/download.png" alt="Prestige 50 Series luxury yacht" style="width: 100%; height: 300px; object-fit: cover;">
+            <div class="image-overlay-shine"></div>
+          </div>
+          <div class="yacht-specs">
+            <h3>Prestige 50 Series</h3>
+            <table class="specs-table">
+              <tr>
+                <td>Length</td>
+                <td>50 Meters</td>
+              </tr>
+              <tr>
+                <td>Maximum Speed</td>
+                <td>25+ Knots</td>
+              </tr>
+              <tr>
+                <td>Guest Capacity</td>
+                <td>12 Guests</td>
+              </tr>
+              <tr>
+                <td>Crew Quarters</td>
+                <td>8 Cabins</td>
+              </tr>
+              <tr>
+                <td>Range</td>
+                <td>3,500 Nautical Miles</td>
+              </tr>
+              <tr>
+                <td>Year Built</td>
+                <td>2024</td>
+              </tr>
+            </table>
+            <button class="purchase-btn">Reserve Inquiry</button>
+          </div>
+        </div>
+
+        <!-- Model 2 - Grand Cruiser 75 -->
+        <div class="yacht-model-card">
+          <div class="yacht-image-real">
+            <img src="../images/khalilah-photo-26.jpeg" alt="Grand Cruiser 75 Series luxury yacht" style="width: 100%; height: 300px; object-fit: cover;">
+            <div class="image-overlay-shine"></div>
+          </div>
+          <div class="yacht-specs">
+            <h3>Grand Cruiser 75 Series</h3>
+            <table class="specs-table">
+              <tr>
+                <td>Length</td>
+                <td>75 Meters</td>
+              </tr>
+              <tr>
+                <td>Maximum Speed</td>
+                <td>22 Knots</td>
+              </tr>
+              <tr>
+                <td>Guest Capacity</td>
+                <td>20 Guests</td>
+              </tr>
+              <tr>
+                <td>Crew Quarters</td>
+                <td>15 Cabins</td>
+              </tr>
+              <tr>
+                <td>Range</td>
+                <td>5,000 Nautical Miles</td>
+              </tr>
+              <tr>
+                <td>Year Built</td>
+                <td>2024</td>
+              </tr>
+            </table>
+            <button class="purchase-btn">Reserve Inquiry</button>
+          </div>
+        </div>
+
+        <!-- Model 3 - Ultra Luxury 120 -->
+        <div class="yacht-model-card">
+          <div class="yacht-image-real">
+            <img src="../images/360_F_560614752_FEzJ2YnMELqFXexwkNdjwvDTo7uxBr46.png" alt="Ultra Luxury 120 Series superyacht" style="width: 100%; height: 300px; object-fit: cover;">
+            <div class="image-overlay-shine"></div>
+          </div>
+          <div class="yacht-specs">
+            <h3>Ultra Luxury 120 Series</h3>
+            <table class="specs-table">
+              <tr>
+                <td>Length</td>
+                <td>120 Meters</td>
+              </tr>
+              <tr>
+                <td>Maximum Speed</td>
+                <td>20 Knots</td>
+              </tr>
+              <tr>
+                <td>Guest Capacity</td>
+                <td>32 Guests</td>
+              </tr>
+              <tr>
+                <td>Crew Quarters</td>
+                <td>25 Cabins</td>
+              </tr>
+              <tr>
+                <td>Range</td>
+                <td>6,000 Nautical Miles</td>
+              </tr>
+              <tr>
+                <td>Year Built</td>
+                <td>2025</td>
+              </tr>
+            </table>
+            <button class="purchase-btn">Reserve Inquiry</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Inquiry Form -->
+      <div class="contact-form" style="margin-top: 4rem;">
+        <h3>Purchase Inquiry Form</h3>
+        <form id="inquiryForm">
+          <div class="form-group">
+            <select id="yachtModel" style="width: 100%; padding: 1rem; border: 2px solid #E0E0E0; border-radius: 8px; font-size: 1rem; font-family: inherit;">
+              <option value="">Select Yacht Model</option>
+              <option value="Prestige 50 Series">Prestige 50 Series</option>
+              <option value="Grand Cruiser 75 Series">Grand Cruiser 75 Series</option>
+              <option value="Ultra Luxury 120 Series">Ultra Luxury 120 Series</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <input type="text" class="form-input" id="inquirerName" placeholder=" " required>
+            <label for="inquirerName" class="form-label">Full Name</label>
+          </div>
+
+          <button type="submit" class="form-button">Submit Inquiry</button>
+        </form>
+      </div>
+
+      <!-- FEEDBACK FORM SECTION -->
+      <div class="contact-form" style="margin-top: 4rem;">
+        <h3 style="text-align: center; color: #D4AF37; margin-bottom: 0.5rem;">Share Your Feedback</h3>
+        <p style="text-align: center; color: #999; margin-bottom: 2rem;">What's your experience with us?</p>
+        <form id="feedbackForm">
+          <div class="form-group">
+            <input type="text" class="form-input" id="feedbackName" placeholder=" " required>
+            <label for="feedbackName" class="form-label">Full Name</label>
+          </div>
+
+          <div class="form-group">
+            <textarea class="form-textarea" id="feedbackMessage" placeholder=" " rows="5" required></textarea>
+            <label for="feedbackMessage" class="form-label">Message</label>
+          </div>
+
+          <button type="submit" class="form-button">Submit Feedback</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER SECTION -->
+  <footer class="footer-section">
+    <div class="footer-container">
+      <div class="footer-content">
+        <div class="footer-column">
+          <h4>LUXE YACHT</h4>
+          <p>Experience ultra-premium luxury yachting since 1995. Based in Monaco.</p>
+          <div class="social-links">
+            <a href="#" aria-label="Visit Facebook">f</a>
+            <a href="#" aria-label="Visit Instagram">📷</a>
+            <a href="#" aria-label="Visit LinkedIn">in</a>
+          </div>
+        </div>
+        <div class="footer-column">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="buy.html">Shop</a></li>
+            <li><a href="news.html">News</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Contact</h4>
+          <ul>
+            <li>📧 info@luxeyacht.com</li>
+            <li>📱 +377 93 15 77 77</li>
+            <li>📍 Monaco, France</li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Newsletter</h4>
+          <form class="newsletter-form" id="newsletterForm">
+            <input type="email" placeholder="Your email" required>
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Luxe Yacht. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll to Top Button -->
+  <button class="scroll-to-top" id="scrollToTop" aria-label="Scroll to top" title="Back to top">↑</button>
+
+  <script src="../script.js"></script>
+</body>
+</html>
