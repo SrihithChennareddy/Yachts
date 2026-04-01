@@ -765,12 +765,87 @@ function createContactHTML(msg) {
 }
 
 // ============================================
+// IMAGE ZOOM MODAL FUNCTIONALITY
+// Click or hover to enlarge images
+// ============================================
+
+class ImageZoomModal {
+  constructor() {
+    this.modal = null;
+    this.init();
+  }
+
+  init() {
+    // Create modal element if it doesn't exist
+    if (!document.getElementById('imageModal')) {
+      const modal = document.createElement('div');
+      modal.id = 'imageModal';
+      modal.className = 'image-modal';
+      modal.innerHTML = `
+        <div class="modal-content">
+          <div class="modal-close">&times;</div>
+          <img id="modalImage" src="" alt="Enlarged image">
+        </div>
+      `;
+      document.body.appendChild(modal);
+    }
+
+    this.modal = document.getElementById('imageModal');
+    const closeBtn = this.modal.querySelector('.modal-close');
+
+    // Close on button click
+    closeBtn.addEventListener('click', (e) => this.close(e));
+
+    // Close on outside click
+    this.modal.addEventListener('click', (e) => {
+      if (e.target === this.modal) this.close();
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') this.close();
+    });
+
+    // Attach zoom handlers to all gallery images
+    this.attachZoomHandlers();
+  }
+
+  attachZoomHandlers() {
+    const galleryImages = document.querySelectorAll('.gallery-item img, .article-gallery img');
+    galleryImages.forEach(img => {
+      img.addEventListener('click', (e) => {
+        e.stopPropagation();
+        this.open(img.src, img.alt);
+      });
+      img.style.cursor = 'pointer';
+    });
+  }
+
+  open(src, alt) {
+    const modalImage = this.modal.querySelector('#modalImage');
+    modalImage.src = src;
+    modalImage.alt = alt;
+    this.modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  close(e) {
+    if (e) e.preventDefault();
+    this.modal.classList.remove('active');
+    document.body.style.overflow = 'auto';
+  }
+}
+
+// ============================================
 // PAGE LOAD INITIALIZATION
 // ============================================
 
 document.addEventListener('DOMContentLoaded', () => {
   // Initialize scroll-to-top manager
   new ScrollToTopManager();
+  
+  // Initialize image zoom modal
+  new ImageZoomModal();
   
   // Initialize all modules
   initSoundToggle();
