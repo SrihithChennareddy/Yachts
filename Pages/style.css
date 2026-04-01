@@ -37,10 +37,18 @@ html {
 body {
   font-family: 'Montserrat', sans-serif;
   color: var(--navy-primary);
-  background: linear-gradient(135deg, #040810 0%, #0B1F35 50%, #001B2E 100%);
+  background: linear-gradient(135deg, #0a1628 0%, #1a2f4a 25%, #2a4a6e 50%, #1a2f4a 75%, #0a1628 100%);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
   line-height: 1.8;
   overflow-x: hidden;
   position: relative;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 body::before {
@@ -69,27 +77,27 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: 3.7rem;
+  font-size: 4.5rem;
   margin-bottom: 1rem;
 }
 
 h2 {
-  font-size: 3rem;
+  font-size: 3.5rem;
   margin-bottom: 1.5rem;
 }
 
 h3 {
-  font-size: 2rem;
+  font-size: 2.2rem;
   margin-bottom: 1rem;
 }
 
 h4 {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   margin-bottom: 0.75rem;
 }
 
 p {
-  font-size: 1.125rem;
+  font-size: 1.2rem;
   color: #333;
   margin-bottom: 1rem;
 }
@@ -102,15 +110,15 @@ nav {
   position: fixed;
   top: 0;
   width: 100%;
-  backdrop-filter: blur(15px);
-  background: rgba(5, 13, 21, 0.75);
-  border-bottom: 2px solid rgba(212, 175, 55, 0.2);
-  padding: 1.2rem 2rem;
+  backdrop-filter: blur(20px);
+  background: rgba(5, 13, 21, 0.85);
+  border-bottom: 3px solid rgba(212, 175, 55, 0.4);
+  padding: 1.5rem 2rem;
   z-index: 1000;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5), 0 0 30px rgba(212, 175, 55, 0.2);
 }
 
 .navbar-container {
@@ -152,11 +160,11 @@ nav {
 
 .logo-main {
   font-family: 'Playfair Display', serif;
-  font-size: 1.1rem;
+  font-size: 1.4rem;
   font-weight: 900;
   letter-spacing: 2px;
   text-transform: uppercase;
-  background: linear-gradient(90deg, 
+  background: linear-gradient(90deg,
     #00D4FF 0%,
     #1A9FBF 25%,
     #0066BB 50%,
@@ -173,7 +181,7 @@ nav {
 
 .logo-sub {
   font-family: 'Montserrat', sans-serif;
-  font-size: 0.65rem;
+  font-size: 0.85rem;
   font-weight: 700;
   color: rgba(212, 175, 55, 0.8);
   letter-spacing: 1px;
@@ -190,7 +198,7 @@ nav a {
   color: rgba(245, 245, 240, 0.9);
   text-decoration: none;
   font-weight: 500;
-  font-size: 0.9rem;
+  font-size: 1.1rem;
   position: relative;
   transition: var(--transition);
   letter-spacing: 0.5px;
@@ -538,18 +546,19 @@ nav a:hover {
 
 .cta-button {
   display: inline-block;
-  padding: 1.2rem 3rem;
+  padding: 1.4rem 3.5rem;
   border-radius: 50px;
   font-weight: 700;
   letter-spacing: 2px;
   transition: var(--transition);
   text-transform: uppercase;
-  font-size: 0.95rem;
+  font-size: 1.1rem;
   position: relative;
   overflow: hidden;
   text-decoration: none;
   cursor: pointer;
   border: none;
+  box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
 }
 
 .cta-primary {
@@ -578,8 +587,8 @@ nav a:hover {
 }
 
 .cta-primary:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 20px 60px rgba(212, 175, 55, 0.6);
+  transform: translateY(-6px) scale(1.05);
+  box-shadow: 0 25px 70px rgba(212, 175, 55, 0.7), 0 0 40px rgba(212, 175, 55, 0.4);
 }
 
 .cta-secondary {
@@ -791,7 +800,9 @@ nav a:hover {
 
 .articles-section {
   padding: 5rem 2rem;
-  background: linear-gradient(135deg, var(--pearl-white) 0%, #E8E4D0 100%);
+  background: linear-gradient(135deg, #0d1b2a 0%, #1b3a52 25%, #2a5270 50%, #1b3a52 75%, #0d1b2a 100%);
+  background-size: 400% 400%;
+  animation: gradientShift 20s ease infinite;
   min-height: 100vh;
   position: relative;
 }
@@ -854,13 +865,13 @@ nav a:hover {
 }
 
 .section-title h2 {
-  color: var(--navy-primary);
+  color: var(--gold-accent);
   margin-bottom: 0.5rem;
 }
 
 .section-title p {
-  font-size: 1rem;
-  color: #666;
+  font-size: 1.3rem;
+  color: rgba(255, 255, 255, 0.9);
   letter-spacing: 2px;
   text-transform: uppercase;
 }
@@ -875,13 +886,13 @@ nav a:hover {
 
 .article-card {
   background: white;
-  border-radius: 12px;
+  border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.15), 0 5px 15px rgba(212, 175, 55, 0.1);
   transition: var(--transition);
   position: relative;
   cursor: pointer;
-  border: 2px solid var(--pearl-white);
+  border: 2px solid rgba(212, 175, 55, 0.2);
   opacity: 0;
   transform: translateY(40px);
 }
@@ -895,8 +906,8 @@ nav a:hover {
 .article-card:nth-child(3).card-visible { animation-delay: 0.3s; }
 
 .article-card:hover {
-  transform: translateY(-12px);
-  box-shadow: 0 18px 50px rgba(212, 175, 55, 0.2);
+  transform: translateY(-15px) scale(1.02);
+  box-shadow: 0 25px 60px rgba(212, 175, 55, 0.3), 0 10px 30px rgba(0, 0, 0, 0.2);
   border-color: var(--gold-accent);
 }
 
@@ -1002,7 +1013,9 @@ nav a:hover {
 
 .news-section {
   padding: 5rem 2rem;
-  background: linear-gradient(135deg, var(--navy-primary) 0%, var(--ocean-blue) 100%);
+  background: linear-gradient(135deg, #0c1821 0%, #1a3045 25%, #284861 50%, #1a3045 75%, #0c1821 100%);
+  background-size: 400% 400%;
+  animation: gradientShift 18s ease infinite;
   min-height: 100vh;
 }
 
@@ -1021,18 +1034,18 @@ nav a:hover {
 
 .news-block {
   background: var(--glass-bg);
-  border: 1px solid var(--glass-border);
-  border-radius: 12px;
-  padding: 2.2rem;
-  backdrop-filter: blur(10px);
+  border: 2px solid var(--glass-border);
+  border-radius: 16px;
+  padding: 2.5rem;
+  backdrop-filter: blur(15px);
   transition: var(--transition);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2), 0 0 20px rgba(212, 175, 55, 0.1);
 }
 
 .news-block:hover {
-  transform: translateY(-10px);
+  transform: translateY(-12px) scale(1.02);
   border-color: var(--gold-accent);
-  box-shadow: 0 15px 45px rgba(212, 175, 55, 0.25);
+  box-shadow: 0 20px 55px rgba(212, 175, 55, 0.35), 0 0 30px rgba(212, 175, 55, 0.2);
 }
 
 .news-block h4 {
@@ -1072,7 +1085,9 @@ nav a:hover {
 
 .about-section {
   padding: 5rem 2rem;
-  background: var(--pearl-white);
+  background: linear-gradient(135deg, #0b1a2b 0%, #1a2f47 25%, #294563 50%, #1a2f47 75%, #0b1a2b 100%);
+  background-size: 400% 400%;
+  animation: gradientShift 22s ease infinite;
   min-height: 100vh;
 }
 
@@ -1145,7 +1160,7 @@ nav a:hover {
 }
 
 .company-info {
-  background: linear-gradient(135deg, #F8F9FA, #E9ECEF);
+  background: linear-gradient(135deg, var(--navy-primary), var(--ocean-blue));
   padding: 3rem;
   border-radius: 15px;
   border-left: 6px solid var(--gold-accent);
@@ -1153,8 +1168,13 @@ nav a:hover {
 }
 
 .company-info h3 {
-  color: var(--navy-primary);
+  color: var(--gold-accent);
   margin-bottom: 1.5rem;
+}
+
+.company-info p {
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.7;
 }
 
 .company-details {
@@ -1164,19 +1184,19 @@ nav a:hover {
 }
 
 .detail-item {
-  background: white;
+  background: linear-gradient(135deg, var(--navy-primary), var(--ocean-blue));
   padding: 1.5rem;
   border-radius: 10px;
   border-top: 3px solid var(--gold-accent);
 }
 
 .detail-item h4 {
-  color: var(--navy-primary);
+  color: var(--gold-accent);
   margin-bottom: 0.5rem;
 }
 
 .detail-item p {
-  color: #666;
+  color: rgba(255, 255, 255, 0.85);
   margin: 0;
   font-size: 0.95rem;
 }
@@ -1185,17 +1205,24 @@ nav a:hover {
 .contact-form {
   max-width: 600px;
   margin: 3rem auto;
-  background: white;
+  background: #001B2E !important;
   padding: 3rem;
   border-radius: 15px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
-  border-top: 4px solid var(--gold-accent);
+  box-shadow: 0 0 30px rgba(212, 175, 55, 0.5), 0 0 60px rgba(212, 175, 55, 0.3), 0 10px 40px rgba(0, 0, 0, 0.12);
+  border: 2px solid var(--gold-accent);
 }
 
 .contact-form h3 {
   text-align: center;
-  color: var(--navy-primary);
-  margin-bottom: 2.5rem;
+  color: #fff !important;
+  margin-bottom: 0.5rem !important;
+}
+
+.contact-form p {
+  text-align: center;
+  color: #fff !important;
+  margin-bottom: 2rem;
+  font-size: 1rem;
 }
 
 .form-group {
@@ -1229,7 +1256,7 @@ nav a:hover {
   position: absolute;
   left: 1rem;
   top: 1rem;
-  color: #999;
+  color: rgba(255, 255, 255, 0.8) !important;
   font-weight: 500;
   pointer-events: none;
   transition: var(--transition);
@@ -1241,7 +1268,7 @@ nav a:hover {
 .form-textarea:not(:placeholder-shown) + .form-label {
   top: -0.9rem;
   left: 0.5rem;
-  background: white;
+  background: #001B2E;
   padding: 0 0.5rem;
   color: var(--gold-accent);
   font-weight: 600;
@@ -1594,7 +1621,9 @@ select:hover {
 
 .article-page {
   padding: 6rem 2rem 2rem;
-  background: var(--pearl-white);
+  background: linear-gradient(135deg, #0d1b2a 0%, #1b3a52 25%, #2a5270 50%, #1b3a52 75%, #0d1b2a 100%);
+  background-size: 400% 400%;
+  animation: gradientShift 20s ease infinite;
   min-height: 100vh;
 }
 
@@ -1604,22 +1633,31 @@ select:hover {
 }
 
 .article-page h1 {
-  color: var(--navy-primary);
+  color: var(--gold-accent);
   font-size: 2.8rem;
   margin-bottom: 1rem;
 }
 
 .article-meta {
-  color: #999;
+  color: rgba(255, 255, 255, 0.7);
   margin-bottom: 2rem;
   font-size: 0.95rem;
   font-weight: 500;
 }
 
 .article-body {
-  color: #333;
+  color: rgba(255, 255, 255, 0.9);
   line-height: 1.9;
   font-size: 1.05rem;
+}
+
+.article-body h2 {
+  color: var(--gold-accent);
+  margin-top: 2rem;
+}
+
+.article-body p {
+  color: rgba(255, 255, 255, 0.9);
 }
 
 /* Image Zoom Modal Styles */
@@ -1693,6 +1731,7 @@ select:hover {
   flex-direction: column;
   gap: 2rem;
   margin: 3rem 0;
+  align-items: center;
 }
 
 .gallery-item {
@@ -1700,26 +1739,26 @@ select:hover {
   overflow: hidden;
   border-radius: 12px;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-  height: 300px;
   border: 3px solid var(--gold-accent);
   cursor: pointer;
-  margin: 1.5rem 0;
+  display: inline-block;
+  max-width: 90%;
 }
 
 .gallery-item:nth-child(even) {
-  margin-left: 5%;
-  width: 95%;
+  align-self: flex-end;
+  margin-right: 5%;
 }
 
 .gallery-item:nth-child(odd) {
-  margin-right: 5%;
-  width: 95%;
+  align-self: flex-start;
+  margin-left: 5%;
 }
 
 .gallery-item img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
+  display: block;
   transition: transform 0.4s ease;
   cursor: pointer;
 }
@@ -2432,7 +2471,7 @@ nav a:hover {
 
 /* Ocean Wave Animated Names */
 .ocean-wave-name {
-  background: linear-gradient(90deg, 
+  background: linear-gradient(90deg,
     #00D4FF 0%,
     #0099FF 25%,
     #1A5F7A 50%,
@@ -2445,6 +2484,20 @@ nav a:hover {
   background-clip: text;
   animation: oceanWaveFlow 4s ease-in-out infinite;
   font-weight: 700;
+}
+
+/* Success Message Box */
+.success-box {
+  background: linear-gradient(135deg, rgba(0, 212, 100, 0.15), rgba(0, 180, 80, 0.1));
+  border: 2px solid rgba(0, 212, 100, 0.5);
+  color: #ffffff !important;
+  padding: 1.2rem 1.5rem;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-top: 1.5rem;
+  box-shadow: 0 8px 25px rgba(0, 212, 100, 0.2);
 }
 
 /* ============================================

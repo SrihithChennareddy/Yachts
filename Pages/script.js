@@ -726,40 +726,40 @@ function displayAllMessages() {
 
 function createMessageHTML(msg) {
   return `
-    <div style="background: rgba(212, 175, 55, 0.08); padding: 1.5rem; border-radius: 8px; margin-bottom: 1rem; border-left: 4px solid #D4AF37;">
+    <div style="background: linear-gradient(135deg, rgba(212, 175, 55, 0.15), rgba(212, 175, 55, 0.08)); padding: 1.5rem; border-radius: 8px; margin-bottom: 1rem; border-left: 4px solid #D4AF37; border: 1px solid rgba(212, 175, 55, 0.3);">
       <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 0.5rem;">
-        <strong style="color: black;">${msg.data.feedbackName}</strong>
-        <small style="color: #999;">${msg.timestamp}</small>
+        <strong style="color: #FFD700; font-size: 1.1rem;">${msg.data.feedbackName}</strong>
+        <small style="color: rgba(255, 255, 255, 0.7);">${msg.timestamp}</small>
       </div>
-      <p style="color: #E0E0E0; margin-bottom: 1rem; line-height: 1.6;">${msg.data.feedbackMessage}</p>
-      <button class="delete-message" data-id="${msg.id}" style="background: #FF6B6B; color: white; border: none; padding: 0.5rem 1rem; border-radius: 5px; cursor: pointer;">Delete</button>
+      <p style="color: rgba(255, 255, 255, 0.95); margin-bottom: 1rem; line-height: 1.6;">${msg.data.feedbackMessage}</p>
+      <button class="delete-message" data-id="${msg.id}" style="background: #FF6B6B; color: white; border: none; padding: 0.5rem 1rem; border-radius: 5px; cursor: pointer; transition: all 0.3s ease;">Delete</button>
     </div>
   `;
 }
 
 function createInquiryHTML(msg) {
   return `
-    <div style="background: rgba(212, 175, 55, 0.08); padding: 1.5rem; border-radius: 8px; margin-bottom: 1rem; border-left: 4px solid #D4AF37;">
+    <div style="background: linear-gradient(135deg, rgba(212, 175, 55, 0.15), rgba(212, 175, 55, 0.08)); padding: 1.5rem; border-radius: 8px; margin-bottom: 1rem; border-left: 4px solid #D4AF37; border: 1px solid rgba(212, 175, 55, 0.3);">
       <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 0.5rem;">
-        <strong style="color: black;">${msg.data.inquirerName}</strong>
-        <small style="color: #999;">${msg.timestamp}</small>
+        <strong style="color: #FFD700; font-size: 1.1rem;">${msg.data.inquirerName}</strong>
+        <small style="color: rgba(255, 255, 255, 0.7);">${msg.timestamp}</small>
       </div>
-      <p style="color: #E0E0E0; margin-bottom: 1rem;"><strong>Model:</strong> ${msg.data.yachtModel}</p>
-      <button class="delete-message" data-id="${msg.id}" style="background: #FF6B6B; color: white; border: none; padding: 0.5rem 1rem; border-radius: 5px; cursor: pointer;">Delete</button>
+      <p style="color: rgba(255, 255, 255, 0.95); margin-bottom: 1rem;"><strong style="color: #D4AF37;">Model:</strong> ${msg.data.yachtModel}</p>
+      <button class="delete-message" data-id="${msg.id}" style="background: #FF6B6B; color: white; border: none; padding: 0.5rem 1rem; border-radius: 5px; cursor: pointer; transition: all 0.3s ease;">Delete</button>
     </div>
   `;
 }
 
 function createContactHTML(msg) {
   return `
-    <div style="background: rgba(212, 175, 55, 0.08); padding: 1.5rem; border-radius: 8px; margin-bottom: 1rem; border-left: 4px solid #D4AF37;">
+    <div style="background: linear-gradient(135deg, rgba(212, 175, 55, 0.15), rgba(212, 175, 55, 0.08)); padding: 1.5rem; border-radius: 8px; margin-bottom: 1rem; border-left: 4px solid #D4AF37; border: 1px solid rgba(212, 175, 55, 0.3);">
       <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 0.5rem;">
-        <strong style="color: black;">${msg.data.name}</strong>
-        <small style="color: #999;">${msg.timestamp}</small>
+        <strong style="color: #FFD700; font-size: 1.1rem;">${msg.data.name}</strong>
+        <small style="color: rgba(255, 255, 255, 0.7);">${msg.timestamp}</small>
       </div>
-      <p style="color: #999; margin-bottom: 0.5rem;">📧 ${msg.data.email}</p>
-      <p style="color: #E0E0E0; margin-bottom: 1rem; line-height: 1.6;">${msg.data.message}</p>
-      <button class="delete-message" data-id="${msg.id}" style="background: #FF6B6B; color: white; border: none; padding: 0.5rem 1rem; border-radius: 5px; cursor: pointer;">Delete</button>
+      <p style="color: rgba(255, 255, 255, 0.8); margin-bottom: 0.5rem;">📧 ${msg.data.email}</p>
+      <p style="color: rgba(255, 255, 255, 0.95); margin-bottom: 1rem; line-height: 1.6;">${msg.data.message}</p>
+      <button class="delete-message" data-id="${msg.id}" style="background: #FF6B6B; color: white; border: none; padding: 0.5rem 1rem; border-radius: 5px; cursor: pointer; transition: all 0.3s ease;">Delete</button>
     </div>
   `;
 }
