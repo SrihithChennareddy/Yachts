@@ -765,6 +765,159 @@ function createContactHTML(msg) {
 }
 
 // ============================================
+// ARTICLE CARD CLICK NAVIGATION
+// Make entire article cards clickable to navigate to specific articles
+// ============================================
+
+function initArticleCardNavigation() {
+  const articleCards = document.querySelectorAll('.article-card');
+  
+  articleCards.forEach(card => {
+    // Make the entire card clickable
+    card.style.cursor = 'pointer';
+    
+    card.addEventListener('click', function(e) {
+      // Don't navigate if clicking on the "Click Article" or "Read More" button directly
+      if (e.target.classList.contains('read-more-btn')) {
+        return;
+      }
+      
+      // Get the article ID from data attribute
+      const articleId = this.getAttribute('data-article-id');
+      
+      // Navigate based on article ID
+      if (articleId === '1') {
+        window.location.href = 'Pages/article1.html';
+      } else if (articleId === '2') {
+        window.location.href = 'Pages/article2.html';
+      } else if (articleId === '3') {
+        window.location.href = 'Pages/article3.html';
+      } else {
+        // For articles 4-10, go to the articles page
+        window.location.href = 'Pages/articles.html';
+      }
+    });
+    
+    // Add hover effect for better UX
+    card.addEventListener('mouseenter', function() {
+      this.style.transform = 'translateY(-8px)';
+    });
+    
+    card.addEventListener('mouseleave', function() {
+      this.style.transform = 'translateY(0)';
+    });
+  });
+}
+
+// ============================================
+// ARTICLE BAR CLICK NAVIGATION (for articles.html page)
+// Make entire article bars clickable
+// ============================================
+
+function initArticleBarNavigation() {
+  const articleBars = document.querySelectorAll('.article-bar');
+  
+  articleBars.forEach((bar, index) => {
+    // Make the entire bar clickable
+    bar.style.cursor = 'pointer';
+    
+    bar.addEventListener('click', function(e) {
+      // Don't navigate if clicking on the link button directly
+      if (e.target.classList.contains('article-bar-link')) {
+        return;
+      }
+      
+      // Find the link within this bar and get its href
+      const link = this.querySelector('.article-bar-link');
+      if (link && link.getAttribute('href') !== '#') {
+        window.location.href = link.getAttribute('href');
+      }
+    });
+    
+    // Add hover effect
+    bar.addEventListener('mouseenter', function() {
+      this.style.transform = 'translateX(10px)';
+      this.style.transition = 'transform 0.3s ease';
+    });
+    
+    bar.addEventListener('mouseleave', function() {
+      this.style.transform = 'translateX(0)';
+    });
+  });
+}
+
+// ============================================
+// LOGO CLICK NAVIGATION
+// Make logo clickable to navigate to home page
+// ============================================
+
+function initLogoNavigation() {
+  const logoBrand = document.querySelector('.logo-brand');
+  
+  if (!logoBrand) return;
+  
+  // Make logo clickable
+  logoBrand.style.cursor = 'pointer';
+  
+  logoBrand.addEventListener('click', function() {
+    // Check if we're in a subdirectory (Pages folder)
+    const currentPath = window.location.pathname;
+    if (currentPath.includes('/Pages/')) {
+      window.location.href = '../index.html';
+    } else {
+      window.location.href = 'index.html';
+    }
+  });
+  
+  // Add hover effect
+  logoBrand.addEventListener('mouseenter', function() {
+    this.style.transform = 'scale(1.05)';
+    this.style.transition = 'transform 0.3s ease';
+  });
+  
+  logoBrand.addEventListener('mouseleave', function() {
+    this.style.transform = 'scale(1)';
+  });
+}
+
+// ============================================
+// NEWS BLOCK CLICK NAVIGATION
+// Make entire news blocks clickable
+// ============================================
+
+function initNewsBlockNavigation() {
+  const newsBlocks = document.querySelectorAll('.news-block');
+  
+  newsBlocks.forEach(block => {
+    // Make the entire block clickable
+    block.style.cursor = 'pointer';
+    
+    block.addEventListener('click', function(e) {
+      // Don't navigate if clicking on the link directly
+      if (e.target.tagName === 'A') {
+        return;
+      }
+      
+      // Find the link within this block and open it
+      const link = this.querySelector('a');
+      if (link) {
+        window.open(link.getAttribute('href'), '_blank', 'noopener,noreferrer');
+      }
+    });
+    
+    // Add hover effect
+    block.addEventListener('mouseenter', function() {
+      this.style.transform = 'translateY(-5px)';
+      this.style.transition = 'transform 0.3s ease';
+    });
+    
+    block.addEventListener('mouseleave', function() {
+      this.style.transform = 'translateY(0)';
+    });
+  });
+}
+
+// ============================================
 // PAGE LOAD INITIALIZATION
 // ============================================
 
@@ -782,6 +935,10 @@ document.addEventListener('DOMContentLoaded', () => {
   initScrollAnimations();
   initSmoothScroll();
   initAdminPage();
+  initArticleCardNavigation();
+  initArticleBarNavigation();
+  initLogoNavigation();
+  initNewsBlockNavigation();
   
   // Update active nav link
   updateActiveNavLink();
